@@ -5,7 +5,7 @@ import FormInput from "@/components/form/FormInput";
 import CategoryInput from "@/components/form/CategoryInput";
 import TextAreaInput from "@/components/form/TextAreaInput";
 import ProvinceInput from "@/components/form/ProvinceInput";
-
+import ClientMapWrapper from "./ClientMapWrapper";
 const CreateProfile = async () => {
   return (
     <section>
@@ -34,6 +34,8 @@ const CreateProfile = async () => {
             />
             <ProvinceInput />
           </div>
+
+          <ClientMapWrapper/>
 
           <SubmitButton text="Create Landmark" size="lg" />
         </FormContainer>
