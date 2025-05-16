@@ -6,6 +6,18 @@ export const profileSchema = z.object({
   userName: z.string().min(2, { message: "Username ต้องมีอย่างน้อย 2 ตัว" }),
 });
 
+const ValidateImage = () => {
+  const maxFileSize = 1024 * 1024;
+  return z.instanceof(File)
+  .refine((file) => {
+  return file.size <= maxFileSize 
+  }, 'File size must be less than 1MB')
+}
+
+export const imageSchema = z.object({
+  image: ValidateImage()
+})
+
 
 
 export const validateWithZod = <T> (schema: ZodSchema<T>, data: unknown):T => {
