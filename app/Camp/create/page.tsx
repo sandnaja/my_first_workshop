@@ -6,6 +6,7 @@ import CategoryInput from "@/components/form/CategoryInput";
 import TextAreaInput from "@/components/form/TextAreaInput";
 import ProvinceInput from "@/components/form/ProvinceInput";
 import ClientMapWrapper from "./ClientMapWrapper";
+import ImageInput from "@/components/form/ImageInput";
 const CreateProfile = async () => {
   return (
     <section>
@@ -34,6 +35,8 @@ const CreateProfile = async () => {
             />
             <ProvinceInput />
           </div>
+
+          <ImageInput/>
 
           <ClientMapWrapper/>
 
