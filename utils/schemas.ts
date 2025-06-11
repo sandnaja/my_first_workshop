@@ -18,7 +18,19 @@ export const imageSchema = z.object({
   image: ValidateImage()
 })
 
-
+export const landmarkSchema = z.object({
+  name: z.string()
+  .min(2, { message: "ชื่อต้องมีอย่างน้อย 2 ตัวอักษร" })
+  .max(30, { message: "ชื่อต้องไม่เกิน 30 ตัวอักษร" }),
+  category: z.string(),
+  description: z.string()
+  .min(2, { message: "ชื่อต้องมีอย่างน้อย 2 ตัวอักษร" })
+  .max(100, { message: "ชื่อต้องไม่เกิน 100 ตัวอักษร" }),
+  price: z.coerce.number().int().min(0, { message: "ราคาต้องมากกว่า 0" }),
+  province: z.string(),
+  lat: z.coerce.number(),
+  lng: z.coerce.number(),
+})
 
 export const validateWithZod = <T> (schema: ZodSchema<T>, data: unknown):T => {
   const result = schema.safeParse(data);
