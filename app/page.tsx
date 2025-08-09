@@ -1,8 +1,10 @@
-import { Button } from "@/components/ui/button";
+import LandmarkContainer from "@/components/home/LandmarkContainer";
+// import { Button } from "@/components/ui/button";
 const HomePage = () => {
-  return <div>
-    HomePage
-    <Button variant={'outline'}>Submit</Button>
-    </div>;
-};
+  return (
+    <>
+      <LandmarkContainer />
+    </>
+  )
+}
 export default HomePage;
