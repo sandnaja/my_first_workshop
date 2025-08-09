@@ -7,7 +7,17 @@ const nextConfig: NextConfig = {
       bodySizeLimit: "10mb",
     },
   },
-  reactStrictMode: false
+  reactStrictMode: false,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "bgmywayjnikdzowoxwgi.supabase.co",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
