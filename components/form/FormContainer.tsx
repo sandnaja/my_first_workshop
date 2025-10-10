@@ -11,7 +11,6 @@ const initalState = {
 
 const FormContainer = ({ action, children }: {action:actionFunction ,children: React.ReactNode }) => {
   const [state, formAction] = useActionState(action, initalState);
-  console.log("state Jahhhh", state);
   useEffect(() => {
     if (state.message) toast(state.message);
   }, [state]);
