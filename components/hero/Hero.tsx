@@ -6,10 +6,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
+import OtherInfo from "./OtherInfo";
+import { LandmarkCardProps } from "@/utils/types";
 
-type Landmark = { id?: string; name?: string; image: string };
-
-export default function Hero({ Landmarks }: { Landmarks: Landmark[] }) {
+export default function Hero({ Landmarks }: { Landmarks: LandmarkCardProps[] }) {
   return (
     <Swiper
       navigation={true}
@@ -28,6 +28,11 @@ export default function Hero({ Landmarks }: { Landmarks: Landmark[] }) {
               className="object-cover"
               priority
             />
+          </div>
+          <div className="absolute bottom-0 left-0 z-50">
+            <div className="col-span-4 mb-4 flex h-full flex-1 justify-end px-5 md:mb-4 md:justify-end md:px-10">
+              <OtherInfo landmark={landmark} />
+            </div>
           </div>
         </SwiperSlide>
       ))}
