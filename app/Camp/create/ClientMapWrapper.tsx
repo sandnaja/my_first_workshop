@@ -11,4 +11,7 @@ const ClientMapWrapper = () => {
   return <MapLandmark />;
 };
 
+
+
 export default ClientMapWrapper;
+
