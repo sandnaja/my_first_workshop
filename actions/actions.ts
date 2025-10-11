@@ -88,14 +88,20 @@ export const createLandmarkAction = async (
   redirect("/");
 };
 
-export const fetchLandmarks = async ({search = '' ,category }:{search?:string ,category?:string}) => {
+export const fetchLandmarks = async ({
+  search = "",
+  category,
+}: {
+  search?: string;
+  category?: string;
+}) => {
   const landmarks = await db.landmark.findMany({
     where: {
       category,
-      OR:[
-        { name: {contains: search, mode: 'insensitive' } },
-        { description: {contains: search, mode: 'insensitive' } },
-      ]
+      OR: [
+        { name: { contains: search, mode: "insensitive" } },
+        { description: { contains: search, mode: "insensitive" } },
+      ],
     },
     orderBy: {
       createdAt: "desc",
@@ -103,7 +109,6 @@ export const fetchLandmarks = async ({search = '' ,category }:{search?:string ,c
   });
   return landmarks;
 };
-
 
 export const fetchLandmarksHero = async () => {
   const landmarks = await db.landmark.findMany({
@@ -188,5 +193,17 @@ export const fetchFavorite = async () => {
       },
     },
   });
-  return favorites.map((favorite)=>favorite.landmark)
+  return favorites.map((favorite) => favorite.landmark);
+};
+
+export const fetchLandmarksDetail = async ({ id }: { id: string }) => {
+  const landmark = await db.landmark.findUnique({
+    where: {
+      id: id,
+    },
+    include: {
+      profile: true,
+    },
+  });
+  return landmark;
 };
